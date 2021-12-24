@@ -1,7 +1,7 @@
 // Socket IO setup
-const GameplayController = require("../controllers/GameplayController");
-const RoomSetupController = require("../controllers/RoomSetupController");
-const Map = require("../Objects/MapClass");
+const GameplayController = require("./GamePlayController");
+const RoomSetupController = require("./RoomSetupController");
+const Map = require("../objects/MapClass");
 var randomWords = require("random-words");
 
 exports.setupSocketCommands = (server) => {
