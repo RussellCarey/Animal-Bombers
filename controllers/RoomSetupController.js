@@ -1,4 +1,4 @@
-const PlayerObject = require("../Objects/playerClass");
+const PlayerObject = require("../objects/playerClass");
 
 exports.createAndJoinRoom = (socket, roomsContainer, roomName) => {
   socket.currentRoom = roomName;

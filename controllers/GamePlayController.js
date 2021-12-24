@@ -1,5 +1,3 @@
-const e = require("express");
-
 exports.placedBomb = (socket, el, rooms, io) => {
   const currentRoom = rooms[socket.currentRoom];
 
