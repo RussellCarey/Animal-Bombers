@@ -1,0 +1,27 @@
+$color-dark: rgb(4, 21, 31);
+$color-drimson: rgb(238, 48, 84);
+$color-dark-grey: rgb(79, 92, 99);
+$color-blue: rgb(1, 132, 255);
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: 0;
+}
+
+.container {
+  overflow: hidden;
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@import "welcome";
+@import "username";
+@import "game";
+@import "chooseRoom";

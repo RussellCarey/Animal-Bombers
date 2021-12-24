@@ -1,0 +1,54 @@
+doctype html
+html
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport" content="width=device-width, initial-scale=1.0")
+        link(rel="stylesheet" href="css/main.css" type="text/css")
+        link(rel="stylesheet" href="https://use.typekit.net/evr6enb.css")
+        script(src="https://kit.fontawesome.com/0561e3b384.js" crossorigin="anonymous")
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.1/gsap.min.js"></script>
+        script(src="/socket.io/socket.io.js")
+        script(src="../modules/p5.js")
+        script(src="../modules/p5.play.js")
+        script(src="../functions/sketchCanvas.js")
+       
+        title Chatify
+    body
+        .container
+            #welcomeScreen 
+
+
+            #usernameScreen
+                .inputBox
+                    p Please enter your desired username!
+                    input#usernameInput(type="text")
+                    button#usernameSubmit Submit username
+
+            #joinRoomScreen 
+                .joinRoomScreen__left
+                    p To join a existing room, input the room code below and press the join room button below!
+                    input#roomCodeInput(type="text")
+                    button#roomCodeSubmit Join room
+
+                .joinRoomScreen__right
+                    p To create a new room room, input the number of people you want to play with (max 4).
+                    p The game wont start until all players have joined the room and chosen a chatacter.
+                    p On entering the room your rom code will be in the top right. Copy and paste it to your friends!
+                    input#peopleNumber(type="Number")
+                    button#createRoomButton Create new
+          
+                
+
+            #gameScreen
+                #codeModal
+                    p#codeModalText
+                #gameScreen__gamewindow
+                    img#borderLeft(src="../images/woodBorderLeft.png", alt="")
+                    img#borderRight(src="../images/woodBorderRight.png", alt="")
+                    img#borderTop(src="../images/woodBorderTop.png", alt="")
+                    img#borderBottom(src="../images/woodBorderBottom.png", alt="")
+                    .gameInfo 
+                        p test 
+                        p test
+         
+    script(src="../functions/client.js") 
