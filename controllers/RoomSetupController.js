@@ -9,6 +9,7 @@ exports.createAndJoinRoom = (socket, roomsContainer, roomName) => {
   roomsContainer.playerNames[socket.username] = socket.username;
 };
 
+// :)
 exports.addAnotherPlayerToRoom = (socket, rooms, room) => {
   const currentRoom = rooms[socket.currentRoom];
   console.log("Player counntt");
