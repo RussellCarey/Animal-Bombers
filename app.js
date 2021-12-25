@@ -1,6 +1,5 @@
 const path = require("path");
 const dotenv = require("dotenv");
-const randomWords = require("random-words");
 const express = require("express");
 const app = express();
 const server = require("http").Server(app);

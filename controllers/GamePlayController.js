@@ -16,7 +16,6 @@ exports.placedBomb = (socket, el, rooms, io) => {
 
 exports.detectCollisions = (socket, room, directions, io) => {
   const currentRoom = room[socket.currentRoom];
-
   if (currentRoom && currentRoom.gameStarted) {
     Object.keys(currentRoom.map).forEach((val) => {
       const currentPlayer = currentRoom.players[socket.username];
@@ -30,6 +29,11 @@ exports.detectCollisions = (socket, room, directions, io) => {
           currentPlayer.y > el.y - 2 &&
           currentPlayer.y < el.y + el.ySpace + 2
         ) {
+          if (el.hasExplosion) {
+            killPlayer(socket, room, io);
+            return;
+          }
+
           if (el.hasBombUp) {
             socket.emit("playCollectableSound");
             currentPlayer.strength++;
@@ -48,11 +52,6 @@ exports.detectCollisions = (socket, room, directions, io) => {
 
           if (el.state === "floor" && el.hasBomb) {
             movePlayer(0.5, socket, directions, room);
-            return;
-          }
-
-          if (el.state === "floor" && el.hasExplosion) {
-            killPlayer(socket, room, io);
             return;
           }
 
@@ -143,23 +142,25 @@ function checkExplosion(el, socket, rooms, io) {
   el.explosionEndTime = getCurrentTime(socket, rooms) + 1100;
 
   // Check up
-  checkExplosionDirection(el, socket, -1, 0, rooms);
+  checkExplosionDirection(el, socket, -1, 0, rooms, io);
   // Check down
-  checkExplosionDirection(el, socket, 1, 0, rooms);
+  checkExplosionDirection(el, socket, 1, 0, rooms, io);
   // Check left
-  checkExplosionDirection(el, socket, 0, -1, rooms);
+  checkExplosionDirection(el, socket, 0, -1, rooms, io);
   // Check right
-  checkExplosionDirection(el, socket, 0, 1, rooms);
+  checkExplosionDirection(el, socket, 0, 1, rooms, io);
 
   el.hasBomb = false;
   io.in(socket.currentRoom).emit("mapUpdate", rooms[socket.currentRoom]);
 }
 
-function checkExplosionDirection(el, socket, changeX, changeY, rooms) {
+function checkExplosionDirection(el, socket, changeX, changeY, rooms, io) {
   const strength = rooms[socket.currentRoom].players[socket.username].strength;
+
   for (let i = 1; i < strength; i++) {
     const xvalue = el.i + i * changeX;
     const kvalue = el.k + i * changeY;
+    const square = rooms[socket.currentRoom].map[xvalue][kvalue];
 
     if (kvalue > 14 || xvalue > 14) {
       break;
@@ -168,8 +169,6 @@ function checkExplosionDirection(el, socket, changeX, changeY, rooms) {
     if (kvalue < 0 || xvalue < 0) {
       break;
     }
-
-    const square = rooms[socket.currentRoom].map[xvalue][kvalue];
 
     // Guard
     if (!square) break;
@@ -181,7 +180,6 @@ function checkExplosionDirection(el, socket, changeX, changeY, rooms) {
     if (square.state === "floor") {
       square.hasExplosion = true;
       square.explosionEndTime = getCurrentTime(socket, rooms) + 1100;
-      square.state = "floor";
     }
 
     if (square.state === "wall") {
@@ -196,19 +194,21 @@ function checkExplosionDirection(el, socket, changeX, changeY, rooms) {
 
 function killPlayer(socket, room, io) {
   const currentRoom = room;
+
+  const alivePlayers = currentRoom[socket.currentRoom].alivePlayers;
   if (socket.isDead) return;
 
-  if (currentRoom.alivePlayers > 1) {
+  if (alivePlayers > 1) {
     io.in(socket.currentRoom).emit("playerDiedSound");
     currentRoom.players[socket.username].isDead = true;
     currentRoom.players[socket.username].x = 5000;
-    currentRoom.alivePlayers--;
+    currentRoom[socket.currentRoom].alivePlayers--;
     delete currentRoom.playerNames[socket.username];
   }
 
-  if (currentRoom.alivePlayers <= 1) {
+  if (alivePlayers <= 1) {
     socket.emit("playerDiedSound");
-    io.in(socket.currentRoom).emit("lastPlayer", Object.keys(currentRoom.playerNames));
+    io.in(socket.currentRoom).emit("lastPlayer", Object.keys(currentRoom[socket.currentRoom].playerNames));
   }
 }
 
@@ -223,7 +223,6 @@ function checkPlayerInBounds(socket, p1, p2, rooms, io) {
   const currentPlayer = rooms[socket.currentRoom].players[socket.username];
 
   if (currentPlayer.x > p1 && currentPlayer.x < p2) {
-    console.log("player died");
     killPlayer(socket, rooms[socket.currentRoom], io);
   }
 }

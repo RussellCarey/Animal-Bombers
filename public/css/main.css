@@ -1,7 +1,8 @@
 * {
   margin: 0;
   padding: 0;
-  box-sizing: 0; }
+  box-sizing: 0;
+}
 
 .container {
   overflow: hidden;
@@ -11,7 +12,8 @@
   overflow: hidden;
   display: flex;
   justify-content: center;
-  align-items: center; }
+  align-items: center;
+}
 
 #welcomeScreen {
   z-index: 10;
@@ -20,10 +22,14 @@
   position: absolute;
   width: 100vw;
   height: 100vh;
-  background-color: #ffbdde;
+  background-color: #3d3d3d;
   display: flex;
   align-items: center;
-  justify-content: center; }
+  justify-content: center;
+
+  color: white;
+  font-size: 32px;
+}
 
 #usernameScreen {
   z-index: 9;
@@ -32,15 +38,17 @@
   position: absolute;
   width: 100vw;
   height: 100vh;
-  background-color: white;
+  background-color: rgb(61, 78, 67);
   display: flex;
   align-items: center;
-  justify-content: center; }
+  justify-content: center;
+}
 
 .inputBox {
   min-height: 400px;
   display: flex;
   align-items: center;
+  background-color: rgb(255, 255, 255);
   justify-content: center;
   width: 400px;
   border: 2px solid #4d4d4d;
@@ -48,18 +56,22 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center; }
+  justify-content: center;
+  border-radius: 20px;
+}
 
 button {
   margin-top: 40px;
   padding: 10px 20px;
   background-color: #dfdfdf;
-  margin-bottom: 30px; }
+  margin-bottom: 30px;
+}
 
 input {
   padding: 10px 5px;
   border-radius: 10px;
-  margin-top: 20px; }
+  margin-top: 20px;
+}
 
 #gameScreen {
   z-index: 2;
@@ -74,7 +86,8 @@ input {
   background-image: url(../images/gamebg.png);
   background-position: center;
   background-repeat: no-repeat;
-  background-size: cover; }
+  background-size: cover;
+}
 
 #gameScreen__gamewindow {
   position: relative;
@@ -84,29 +97,35 @@ input {
   flex-direction: row-reverse;
   align-items: center;
   justify-content: center;
-  background-color: pink; }
+  background-color: pink;
+}
 
 .gameInfo {
   width: 200px;
   height: 750px;
   background-color: aquamarine;
-  display: none; }
+  display: none;
+}
 
 #borderLeft {
   position: absolute;
-  left: -70px; }
+  left: -70px;
+}
 
 #borderRight {
   position: absolute;
-  right: -70px; }
+  right: -70px;
+}
 
 #borderTop {
   position: absolute;
-  top: -60px; }
+  top: -60px;
+}
 
 #borderBottom {
   position: absolute;
-  bottom: -70px; }
+  bottom: -70px;
+}
 
 #codeModal {
   z-index: 100000;
@@ -114,14 +133,16 @@ input {
   display: flex;
   justify-content: center;
   align-self: center;
-  background-color: rgba(249, 249, 249, 0.683);
+  background-color: rgb(249, 249, 249);
+  border: 1px solid rgb(61, 78, 67);
   color: #1b1b1b;
   width: max-content;
   height: 20px;
   padding: 10px 20px;
   border-radius: 10px;
   top: 10px;
-  right: 10px; }
+  right: 10px;
+}
 
 #joinRoomScreen {
   z-index: 8;
@@ -130,22 +151,26 @@ input {
   position: absolute;
   width: 100vw;
   height: 100vh;
-  background-color: #deebdc;
+  background-color: rgb(61, 78, 67);
+  color: white;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   align-items: center;
-  justify-content: center; }
+  justify-content: center;
+}
 
 .joinRoomScreen__left {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 50px; }
+  padding: 50px;
+}
 
 .joinRoomScreen__right {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 50px; }
+  padding: 50px;
+}

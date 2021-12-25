@@ -12,17 +12,18 @@ html
         script(src="../modules/p5.play.js")
         script(src="../functions/sketchCanvas.js")
        
-        title Chatify
+        title Ani-Bombers! The animal bombing game.
     body
         .container
             #welcomeScreen 
+                p Loading..
 
 
             #usernameScreen
                 .inputBox
                     p Please enter your desired username!
                     input#usernameInput(type="text")
-                    button#usernameSubmit Submit username
+                    button#usernameSubmit Enter
 
             #joinRoomScreen 
                 .joinRoomScreen__left
@@ -47,8 +48,5 @@ html
                     img#borderRight(src="../images/woodBorderRight.png", alt="")
                     img#borderTop(src="../images/woodBorderTop.png", alt="")
                     img#borderBottom(src="../images/woodBorderBottom.png", alt="")
-                    .gameInfo 
-                        p test 
-                        p test
          
     script(src="../functions/client.js") 

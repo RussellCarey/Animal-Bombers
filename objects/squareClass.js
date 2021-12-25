@@ -20,7 +20,7 @@ class Square {
     this.floorImages = [0, 1, 2];
     this.bushImages = [0, 1, 2];
 
-    this.hasExplosion;
+    this.hasExplosion = false;
     this.explosionEndTime;
     this.w;
     this.h;
@@ -67,12 +67,9 @@ class Square {
     if (this.i === 1 && this.k === this.size - 2) this.state = "floor";
     if (this.i === 2 && this.k === this.size - 2) this.state = "floor";
 
-    if (this.i === this.size - 2 && this.k === this.size - 2)
-      this.state = "floor";
-    if (this.i === this.size - 2 && this.k === this.size - 3)
-      this.state = "floor";
-    if (this.i === this.size - 3 && this.k === this.size - 2)
-      this.state = "floor";
+    if (this.i === this.size - 2 && this.k === this.size - 2) this.state = "floor";
+    if (this.i === this.size - 2 && this.k === this.size - 3) this.state = "floor";
+    if (this.i === this.size - 3 && this.k === this.size - 2) this.state = "floor";
 
     if (collectRandom > 80 && this.state === "wall") {
       const random = Math.random() * 100;
