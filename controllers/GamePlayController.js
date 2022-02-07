@@ -160,6 +160,7 @@ function checkExplosionDirection(el, socket, changeX, changeY, rooms, io) {
   for (let i = 1; i < strength; i++) {
     const xvalue = el.i + i * changeX;
     const kvalue = el.k + i * changeY;
+    console.log(xvalue, kvalue);
     const square = rooms[socket.currentRoom].map[xvalue][kvalue];
 
     if (kvalue > 14 || xvalue > 14) {
