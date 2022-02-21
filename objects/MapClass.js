@@ -1,5 +1,6 @@
 const Square = require("./squareClass");
 
+//
 class Map {
   constructor(maxPeople) {
     this.map = {};
