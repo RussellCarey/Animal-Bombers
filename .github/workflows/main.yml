@@ -15,13 +15,13 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
 
-      - run: pm2 delete animal_bombers
+      # - run: pm2 delete animal_bombers
 
       - run: npm i
       - run: pm2 start npm --name "animal_bombers" -- run start
 
       - run: |
-          pm2 stop animal_bombers
+
           pm2 start animal_bombers
           pm2 save
           sudo service nginx restart
