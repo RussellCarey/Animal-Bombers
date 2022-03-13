@@ -5,15 +5,12 @@ exports.createAndJoinRoom = (socket, roomsContainer, roomName) => {
   socket.join(roomName);
 
   roomsContainer.players[socket.username] = new PlayerObject(socket.username, 70, 70);
-
   roomsContainer.playerNames[socket.username] = socket.username;
 };
 
 // :)
 exports.addAnotherPlayerToRoom = (socket, rooms, room) => {
   const currentRoom = rooms[socket.currentRoom];
-  console.log("Player counntt");
-  console.log(currentRoom.playerCount);
 
   if (currentRoom.playerCount === 1) {
     console.log("Second person join and player created");
@@ -41,4 +38,6 @@ exports.addAnotherPlayerToRoom = (socket, rooms, room) => {
     currentRoom.alivePlayers = 4;
     return;
   }
+
+  console.log(currentRoom.playerNames);
 };
