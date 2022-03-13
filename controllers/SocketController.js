@@ -52,7 +52,7 @@ exports.setupSocketCommands = (server) => {
       });
     });
 
-    //? On joining an existing room -- (CHECKED)
+    //? On joining an existing room -- (CHECKED);;;;;;
     socket.on("joinRoom", (roomname) => {
       socket.currentRoom = roomname.trim();
       const socketRooms = io.of("/").adapter.rooms;
