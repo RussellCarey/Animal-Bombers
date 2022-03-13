@@ -1,3 +1,4 @@
+//..
 class Player {
   constructor(username, x, y) {
     this.username = username;
