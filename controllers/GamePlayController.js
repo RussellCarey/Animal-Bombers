@@ -184,7 +184,7 @@ function checkExplosionDirection(el, socket, changeX, changeY, rooms, io) {
     }
 
     if (square.state === "wall") {
-      // Guard - stop it hopping over the stone
+      // Guard - stop it hopping over the stone///
       square.hasExplosion = true;
       square.explosionEndTime = getCurrentTime(socket, rooms) + 1100;
       square.state = "floor";
