@@ -1,9 +1,9 @@
 # Animal Bombers
 
 [From 2020]
-A Bomber-man inspired, online (socket io) multiplayer battle game.
+A Bomber-Man inspired, online (socket IO) multiplayer battle game.
 
-![alt text](https://github.com/RussellCarey/Funky-Survey/blob/master/design/funkgif.gif?raw=true)
+![alt text](https://github.com/RussellCarey/Animal-Bombers/blob/master/design/SS1.png)
 
 ## Table of contents
 
@@ -34,7 +34,7 @@ Users can:
 - Battle their friends by using a room-code system.
 - Fight with up to 4 players.
 - Sudden death mode - fog will creep in after some time and kill those who touch it.
-- Collect power-ups in game to gain the advantage
+- Collect power-ups in game to gain the advantage.
 
 ## Status
 
@@ -44,10 +44,10 @@ Project is: Unfinished.
 
 - Re work all the code to make it better.
 - Use solid OOP.
-- Add accounts system.
+- Add accounts system and scoring system.
 - Add unlockable characters.
 - Use more up to date and modern tech.
-- etc
+- So much more..
 
 ## Inspiration
 
