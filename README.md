@@ -1,7 +1,9 @@
-# Animal Bombers
+# Animal Bombers - https://anibombers.russell-carey.com
 
 [From 2020]
 A Bomber-Man inspired, online (socket IO) multiplayer battle game.
+
+I will alway love this project (even though its a little bit spaghetti and very junior)
 
 ![alt text](https://github.com/RussellCarey/Animal-Bombers/blob/master/design/SS1.png)
 
