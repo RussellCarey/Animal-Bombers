@@ -4,7 +4,6 @@
 A Bomber-Man inspired, online (socket IO) multiplayer battle game.  
 
 ![alt text](https://github.com/RussellCarey/Animal-Bombers/blob/master/design/SS1.png)
-Uploading aaaaab.mp4…
 
 
 ## Table of contents
