@@ -3,9 +3,9 @@
 [From 2020]
 A Bomber-Man inspired, online (socket IO) multiplayer battle game.  
 
-I will alway love this project (even though its a little bit spaghetti and very junior)
-
 ![alt text](https://github.com/RussellCarey/Animal-Bombers/blob/master/design/SS1.png)
+Uploading aaaaab.mp4…
+
 
 ## Table of contents
 
@@ -57,4 +57,4 @@ This project was made just as I learnt node and socket IO. I wanted to see if I 
 
 ## Contact
 
-Created by [@RussellCarey](https://twitter.com/russellcareyy) - feel free to contact me about the project
+Created by [@RussellCarey](https://twitter.com/russellcareyy) - feel free to contact me about the project.
